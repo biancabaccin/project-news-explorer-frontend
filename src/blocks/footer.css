@@ -1,0 +1,47 @@
+.footer {
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.footer__copyright {
+  color: #b6bcbf;
+  line-height: 22px;
+  margin: 32px 0 26px 104px;
+}
+
+.footer__navigation {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 104px;
+}
+
+.footer__link-box {
+  display: flex;
+  gap: 40px;
+}
+
+.footer__icon-box {
+  display: flex;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.footer__link:visited {
+  color: #000000;
+}

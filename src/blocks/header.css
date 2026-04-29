@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.header__logo {
+  font-family: "Roboto Slab";
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+  margin: 0 0 0 40px;
+}
+
+.header__logo:visited {
+  color: #ffffff;
+}

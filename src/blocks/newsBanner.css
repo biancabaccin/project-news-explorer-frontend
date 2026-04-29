@@ -1,0 +1,51 @@
+.news-banner {
+  height: 576px;
+  max-height: 576px;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-banner__photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.news-banner__container {
+  max-width: 702px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  color: white;
+  gap: 32px;
+}
+
+.news-banner__title {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.news-banner-content {
+  max-width: 608px;
+}
+
+.news-banner__description {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
