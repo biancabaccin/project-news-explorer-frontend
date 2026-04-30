@@ -7,7 +7,7 @@ export default function About() {
         <img className="about__author-photo" src={authorPhoto} alt="Author" />
 
         <div className="about__content">
-          <h2 className="about__title">Sobre o autor</h2>
+          <h3 className="about__title">Sobre o autor</h3>
           <p className="about__description">
             Olá! Me chamo Bianca Baccin e estou finalizando o curso de Web
             Development da TripleTen, onde aprendi sobre HTML, CSS, JavaScript,
