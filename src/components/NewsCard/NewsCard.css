@@ -1,10 +1,3 @@
-.news-card__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 16px;
-  row-gap: 16px;
-}
-
 .news-card {
   list-style: none;
   position: relative;
@@ -36,17 +29,58 @@
   border-radius: 8px;
   background-color: #ffffff;
 
-  background-image: url("../images/Bookmark.svg");
+  background-image: url("@src/images/Bookmark.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .news-card__save-button:hover {
-  background-image: url("../images/Bookmark_Hover.svg");
+  background-image: url("@src/images/Bookmark_Hover.svg");
 }
 
 .news-card__save-button:active {
-  background-image: url("../images/Bookmark_Active.svg");
+  background-image: url("@src/images/Bookmark_Active.svg");
+}
+
+.news-card__top-box {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  max-width: 352px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-card__article-tag {
+  height: 40px;
+  max-width: 121px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffffff;
+
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.news-card__remove-button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+
+  background-image: url("@src/images/Trash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.news-card__remove-button:hover {
+  background-image: url("@src/images/Trash_Hover.svg");
 }
 
 .news-card__content {

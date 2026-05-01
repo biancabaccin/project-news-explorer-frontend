@@ -1,18 +1,18 @@
-.card-tooltip {
+.remove-tooltip {
   position: absolute;
   top: 24px;
   right: 69px;
 
   height: 40px;
-  width: 182px;
-  border-radius: 8px;
+  width: 159px;
+  border-radius: 10px;
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.card-tooltip__content {
+.remove-tooltip__content {
   font-family: "Roboto";
   font-weight: 500;
   font-size: 12px;

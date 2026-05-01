@@ -1,12 +1,2 @@
 @import url("./vendor/normalize.css");
 @import url("./vendor/fonts.css");
-@import url("./blocks/header.css");
-@import url("./blocks/navigation.css");
-@import url("./blocks/newsBanner.css");
-@import url("./blocks/searchForm.css");
-@import url("./blocks/noResults.css");
-@import url("./blocks/newsPage.css");
-@import url("./blocks/newsCard.css");
-@import url("./blocks/cardTooltip.css");
-@import url("./blocks/about.css");
-@import url("./blocks/footer.css");

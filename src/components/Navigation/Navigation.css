@@ -51,3 +51,21 @@
 .navigation__signout-button:hover {
   opacity: 85%;
 }
+
+.navigation--saved .navigation__link {
+  color: #1a1b22;
+}
+
+.navigation--saved .navigation__link:visited {
+  color: #1a1b22;
+}
+
+.navigation--saved .navigation__signin-button {
+  color: tomato;
+  border-color: tomato;
+}
+
+.navigation--saved .navigation__signout-button {
+  color: #1a1b22;
+  border-color: #1a1b22;
+}

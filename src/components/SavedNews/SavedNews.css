@@ -1,0 +1,15 @@
+.saved-news {
+  background-color: #f5f6f7;
+}
+
+.saved-news__cards {
+  max-width: 1232px;
+  padding: 62px 104px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+  background-color: #f5f6f7;
+}

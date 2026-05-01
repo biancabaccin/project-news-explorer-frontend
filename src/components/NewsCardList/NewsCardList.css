@@ -1,0 +1,23 @@
+.news-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.news-card-list__more-button {
+  width: 288px;
+  height: 64px;
+  border-radius: 80px;
+  border: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  align-self: center;
+}
+
+.news-card-list__more-button:hover {
+  background: #e8e8e8;
+}

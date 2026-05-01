@@ -1,14 +1,18 @@
+import "./Navigation.css";
 import { Link } from "react-router-dom";
-import logoutIcon from "@src/images/Logout.svg";
+import logoutLight from "@src/images/Logout.svg";
+import logoutDark from "@src/images/Logout_Dark.svg";
 
-export default function Navigation() {
+export default function Navigation({ variant }) {
+  const logoutIcon = variant === "saved" ? logoutDark : logoutLight;
+
   return (
-    <div className="navigation">
+    <div className={`navigation ${variant ? `navigation--${variant}` : ""}`}>
       <Link to="/" className="navigation__link">
         Início
       </Link>
 
-      <Link to="/" className="navigation__link">
+      <Link to="/saved-news" className="navigation__link">
         Artigos salvos
       </Link>
 

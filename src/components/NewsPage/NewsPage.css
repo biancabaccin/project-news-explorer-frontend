@@ -17,20 +17,3 @@
   font-size: 40px;
   line-height: 46px;
 }
-
-.news-page__more-button {
-  width: 288px;
-  height: 64px;
-  border-radius: 80px;
-  border: none;
-  font-family: "Roboto";
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  align-self: center;
-}
-
-.news-page__more-button:hover {
-  background: #e8e8e8;
-}

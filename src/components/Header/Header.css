@@ -25,3 +25,15 @@
 .header__logo:visited {
   color: #ffffff;
 }
+
+.header--saved {
+  position: relative;
+}
+
+.header--saved .header__logo {
+  color: #1a1b22;
+}
+
+.header--saved .header__logo:visited {
+  color: #1a1b22;
+}
