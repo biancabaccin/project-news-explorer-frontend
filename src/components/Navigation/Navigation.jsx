@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoutLight from "@src/images/Logout.svg";
 import logoutDark from "@src/images/Logout_Dark.svg";
 
-export default function Navigation({ variant }) {
+export default function Navigation({ variant, onOpenPopup }) {
   const logoutIcon = variant === "saved" ? logoutDark : logoutLight;
 
   return (
@@ -16,11 +16,17 @@ export default function Navigation({ variant }) {
         Artigos salvos
       </Link>
 
-      <button className="navigation__signout-button">
+      <button className="navigation__signout-button" type="button">
         Fulana <img src={logoutIcon} alt="Logout" />
       </button>
 
-      <button className="navigation__signin-button">Entrar</button>
+      <button
+        className="navigation__signin-button"
+        type="button"
+        onClick={() => onOpenPopup("login")}
+      >
+        Entrar
+      </button>
     </div>
   );
 }

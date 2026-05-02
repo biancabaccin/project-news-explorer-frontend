@@ -2,7 +2,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 
-export default function Header({ variant }) {
+export default function Header({ variant, onOpenPopup }) {
   return (
     <header className={`header ${variant ? `header--${variant}` : ""}`}>
       <div className="header__container">
@@ -10,7 +10,7 @@ export default function Header({ variant }) {
           NewsExplorer
         </Link>
 
-        <Navigation variant={variant} />
+        <Navigation variant={variant} onOpenPopup={onOpenPopup} />
       </div>
     </header>
   );

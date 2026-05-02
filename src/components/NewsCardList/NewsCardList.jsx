@@ -10,6 +10,7 @@ export default function NewsCardList() {
         <NewsCard />
       </ul>
 
+      {/* verificar se o type desse botão é button ou submit */}
       <button className="news-card-list__more-button">Mostrar mais</button>
     </>
   );
