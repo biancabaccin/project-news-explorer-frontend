@@ -38,8 +38,20 @@
   background-image: url("@src/images/Bookmark_Hover.svg");
 }
 
-.news-card__save-button:active {
+/* .news-card__save-button:active {
   background-image: url("@src/images/Bookmark_Active.svg");
+} */
+
+.news-card__save-button--active {
+  background-image: url("@src/images/Bookmark_Active.svg");
+}
+
+.news-card__save-button--active:active {
+  background-image: url("@src/images/Bookmark_Active.svg");
+}
+
+.news-card__save-button:disabled {
+  cursor: default;
 }
 
 .news-card__top-box {

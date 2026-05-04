@@ -56,6 +56,33 @@ export default function App() {
     localStorage.removeItem("currentUser");
   }
 
+  function saveCardForUser(card) {
+    const saved = JSON.parse(localStorage.getItem("savedNewsByUser")) || {};
+    const email = currentUser.email;
+    if (!saved[email]) saved[email] = [];
+
+    if (!saved[email].some((c) => c.id === card.id)) {
+      saved[email].push(card);
+    }
+
+    localStorage.setItem("savedNewsByUser", JSON.stringify(saved));
+  }
+
+  function removeCardForUser(cardId) {
+    const saved = JSON.parse(localStorage.getItem("savedNewsByUser")) || {};
+    const email = currentUser.email;
+    if (!saved[email]) return;
+
+    saved[email] = saved[email].filter((c) => c.id !== cardId);
+    localStorage.setItem("savedNewsByUser", JSON.stringify(saved));
+  }
+
+  function getSavedCards() {
+    const saved = JSON.parse(localStorage.getItem("savedNewsByUser")) || {};
+    const email = currentUser?.email;
+    return email && saved[email] ? saved[email] : [];
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">

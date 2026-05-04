@@ -61,7 +61,7 @@ export default function Main({
       />
       <Preloader />
       <NoResults />
-      <NewsPage />
+      <NewsPage currentUser={currentUser} />
       <About />
 
       {popup && popupMap[popup.type] && (
