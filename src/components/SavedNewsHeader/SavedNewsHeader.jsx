@@ -9,7 +9,9 @@ export default function SavedNewsHeader({ currentUser, onLogout }) {
       <div className="saved-news-header__content">
         <h2 className="saved-news-header__title">Artigos salvos</h2>
         <p className="saved-news-header__quantity">
-          FULANA, você tem 5 artigos salvos
+          {currentUser
+            ? `${currentUser.username}, você tem 5 artigos salvos`
+            : "Você tem 5 artigos salvos"}
         </p>
         <p className="saved-news-header__keyword">
           Por palavras-chave: Natureza, Yellowstone, e 2 outras
