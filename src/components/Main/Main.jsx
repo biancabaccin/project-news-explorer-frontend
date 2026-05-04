@@ -8,7 +8,15 @@ import Login from "./components/Popup/components/Login/Login";
 import Register from "./components/Popup/components/Register/Register";
 import RegisterTooltip from "./components/Popup/components/RegisterTooltip/RegisterTooltip";
 
-export default function Main({ popup, onClosePopup, onOpenPopup }) {
+export default function Main({
+  popup,
+  onClosePopup,
+  onOpenPopup,
+  currentUser,
+  onLogin,
+  onRegister,
+  onLogout,
+}) {
   const popupMap = {
     login: {
       title: "Entrar",
@@ -16,6 +24,7 @@ export default function Main({ popup, onClosePopup, onOpenPopup }) {
         <Login
           onClose={onClosePopup}
           onOpenRegister={() => onOpenPopup("register")}
+          onLogin={onLogin}
         />
       ),
     },
@@ -27,6 +36,7 @@ export default function Main({ popup, onClosePopup, onOpenPopup }) {
           onClose={onClosePopup}
           onOpenLogin={() => onOpenPopup("login")}
           onOpenTooltip={() => onOpenPopup("registerTooltip")}
+          onRegister={onRegister}
         />
       ),
     },
@@ -44,7 +54,11 @@ export default function Main({ popup, onClosePopup, onOpenPopup }) {
 
   return (
     <main className="main">
-      <NewsBanner onOpenPopup={onOpenPopup} />
+      <NewsBanner
+        onOpenPopup={onOpenPopup}
+        currentUser={currentUser}
+        onLogout={onLogout}
+      />
       <Preloader />
       <NoResults />
       <NewsPage />

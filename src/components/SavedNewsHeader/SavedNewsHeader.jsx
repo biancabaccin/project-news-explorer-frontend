@@ -1,10 +1,10 @@
 import "./SavedNewsHeader.css";
 import Header from "../Header/Header";
 
-export default function SavedNewsHeader() {
+export default function SavedNewsHeader({ currentUser, onLogout }) {
   return (
     <div className="saved-news-header">
-      <Header variant="saved" />
+      <Header variant="saved" currentUser={currentUser} onLogout={onLogout} />
 
       <div className="saved-news-header__content">
         <h2 className="saved-news-header__title">Artigos salvos</h2>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Login({ onClose, onOpenRegister }) {
+export default function Login({ onClose, onOpenRegister, onLogin }) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,11 @@ export default function Login({ onClose, onOpenRegister }) {
     }
 
     setEmailError("");
+
+    if (onLogin) {
+      onLogin({ email, password });
+    }
+
     onClose();
   }
 

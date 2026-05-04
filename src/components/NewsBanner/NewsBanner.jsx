@@ -4,10 +4,14 @@ import newsBannerImage from "@src/images/News_Banner.png";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 
-export default function NewsBanner({ onOpenPopup }) {
+export default function NewsBanner({ onOpenPopup, currentUser, onLogout }) {
   return (
     <div className="news-banner">
-      <Header onOpenPopup={onOpenPopup} />
+      <Header
+        onOpenPopup={onOpenPopup}
+        currentUser={currentUser}
+        onLogout={onLogout}
+      />
 
       <img className="news-banner__photo" src={newsBannerImage} alt="Banner" />
 

@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function Register({ onClose, onOpenLogin, onOpenTooltip }) {
+export default function Register({
+  onClose,
+  onOpenLogin,
+  onOpenTooltip,
+  onRegister = { onRegister },
+}) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
@@ -58,6 +63,10 @@ export default function Register({ onClose, onOpenLogin, onOpenTooltip }) {
     }
 
     setEmailError("");
+
+    if (onRegister) {
+      onRegister({ username, email, password });
+    }
 
     onClose();
     onOpenTooltip();
