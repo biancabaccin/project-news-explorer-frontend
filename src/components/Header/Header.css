@@ -19,7 +19,7 @@
   font-weight: 700;
   line-height: 24px;
   text-decoration: none;
-  margin: 0 0 0 104px;
+  margin-left: 104px;
 }
 
 .header__logo:visited {
@@ -36,4 +36,10 @@
 
 .header--saved .header__logo:visited {
   color: #1a1b22;
+}
+
+@media screen and (max-width: 850px) {
+  .header__logo {
+    margin-left: 40px;
+  }
 }

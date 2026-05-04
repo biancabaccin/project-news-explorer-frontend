@@ -18,3 +18,9 @@
   font-size: 12px;
   line-height: 100%;
 }
+
+@media screen and (max-width: 850px) {
+  .save-tooltip {
+    display: none;
+  }
+}

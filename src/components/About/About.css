@@ -36,3 +36,34 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media screen and (max-width: 850px) {
+  .about {
+    max-height: 354px;
+    gap: 32px;
+  }
+
+  .about__author-photo {
+    width: 232px;
+    height: 232px;
+    margin: 61px 0 61px 40px;
+  }
+
+  .about__content {
+    max-width: 424px;
+    gap: 16px;
+    margin: 40px 40px 96px 0;
+  }
+
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .about__description {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

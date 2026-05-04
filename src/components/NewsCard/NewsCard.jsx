@@ -97,10 +97,14 @@ export default function NewsCard({
       )}
 
       <div className="news-card__content">
-        <p className="news-card__date">{date}</p>
-        <p className="news-card__title">{title}</p>
-        <p className="news-card__description">{description}</p>
-        <p className="news-card__source">{source}</p>
+        <div className="news-card__content-row">
+          <p className="news-card__date">{date}</p>
+          <p className="news-card__title">{title}</p>
+        </div>
+        <div className="news-card__content-row">
+          <p className="news-card__description">{description}</p>
+          <p className="news-card__source">{source}</p>
+        </div>
       </div>
     </li>
   );

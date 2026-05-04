@@ -45,3 +45,25 @@
 .footer__link:visited {
   color: #000000;
 }
+
+@media screen and (max-width: 850px) {
+  .footer__copyright {
+    color: #b6bcbf;
+    line-height: 22px;
+    margin: 24px 0 18px 40px;
+  }
+
+  .footer__navigation {
+    margin-right: 41px;
+  }
+
+  .footer__icon-box {
+    display: flex;
+    gap: 24px;
+    margin: 20px 0;
+  }
+
+  .footer__link-home {
+    font-weight: 500;
+  }
+}

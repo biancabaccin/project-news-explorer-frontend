@@ -21,3 +21,15 @@
 .news-card-list__more-button:hover {
   background: #e8e8e8;
 }
+
+@media screen and (max-width: 850px) {
+  .news-card-list {
+    column-gap: 8px;
+    row-gap: 8px;
+  }
+
+  .news-card-list__more-button {
+    width: 240px;
+    height: 56px;
+  }
+}

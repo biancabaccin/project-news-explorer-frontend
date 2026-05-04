@@ -13,7 +13,7 @@ export default function Footer() {
 
         <div className="footer__navigation">
           <div className="footer__link-box">
-            <Link to="/" className="footer__link">
+            <Link to="/" className="footer__link footer__link-home">
               Início
             </Link>
             <a

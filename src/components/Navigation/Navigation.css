@@ -4,6 +4,7 @@
   gap: 44px;
   margin: 16px 104px 12px 0;
   font-family: "Roboto";
+  font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
@@ -32,10 +33,11 @@
 }
 
 .navigation__link--active::after {
-  width: 145%;
+  width: 155%;
 }
 
 .navigation__signin-button {
+  font-weight: 500;
   width: 176px;
   height: 48px;
   color: #ffffff;
@@ -81,6 +83,10 @@
   background-color: #1a1b22;
 }
 
+.navigation--saved .navigation__link--active::after {
+  width: 140%;
+}
+
 .navigation--saved .navigation__signin-button {
   color: #1a1b22;
   border-color: #1a1b22;
@@ -89,4 +95,33 @@
 .navigation--saved .navigation__signout-button {
   color: #1a1b22;
   border-color: #1a1b22;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 850px) {
+  .navigation {
+    gap: 22px;
+    margin: 14px 40px 12px 0;
+    font-size: 16px;
+  }
+
+  .navigation__signin-button {
+    width: 152px;
+    height: 40px;
+  }
+
+  .navigation__signout-button {
+    width: 140px;
+    height: 40px;
+    gap: 13px;
+  }
+
+  .navigation__link::after {
+    bottom: -21px;
+    height: 3px;
+  }
+
+  .navigation--saved .navigation__link--active::after {
+    width: 120%;
+  }
 }

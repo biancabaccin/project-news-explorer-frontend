@@ -46,3 +46,14 @@
 .search-form__search-button:active {
   background-color: #2a65cc;
 }
+
+@media screen and (max-width: 850px) {
+  .search-form__input {
+    height: 56px;
+  }
+
+  .search-form__search-button {
+    width: 160px;
+    height: 56px;
+  }
+}
