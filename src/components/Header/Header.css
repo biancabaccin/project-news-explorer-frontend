@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.5);
 }
 
 .header__logo {
@@ -41,5 +41,12 @@
 @media screen and (max-width: 850px) {
   .header__logo {
     margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .header__logo {
+    margin-left: 16px;
+    font-size: 16px;
   }
 }

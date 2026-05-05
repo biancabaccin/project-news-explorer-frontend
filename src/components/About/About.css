@@ -67,3 +67,29 @@
     line-height: 24px;
   }
 }
+
+@media screen and (max-width: 610px) {
+  .about {
+    max-height: 900px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about__author-photo {
+    width: 272px;
+    height: 272px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 32px 24px 0;
+  }
+
+  .about__content {
+    max-width: 288px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0px 16px 70px;
+  }
+}

@@ -23,3 +23,13 @@
     row-gap: 8px;
   }
 }
+
+@media screen and (max-width: 610px) {
+  .saved-news__cards {
+    max-width: 288px;
+    padding: 24px 16px 13px;
+
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
+  }
+}

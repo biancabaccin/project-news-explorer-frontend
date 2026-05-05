@@ -73,10 +73,34 @@
   }
 
   .news-banner__description {
-    font-family: "Roboto";
-    font-weight: 400;
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .news-banner {
+    height: 536px;
+    max-height: 536px;
+  }
+
+  .news-banner__container {
+    max-width: 288px;
+    margin: 0;
+    gap: 0;
+  }
+
+  .news-banner__title {
+    width: 320px;
+    margin: 70px 0px 12px 19px;
+  }
+
+  .news-banner-content {
+    width: 310px;
+  }
+
+  .news-banner__description {
+    margin: 0px 16px 86.44px;
   }
 }

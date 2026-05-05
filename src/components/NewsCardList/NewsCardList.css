@@ -33,3 +33,16 @@
     height: 56px;
   }
 }
+
+@media screen and (max-width: 610px) {
+  .news-card-list {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
+    margin: 0 auto;
+  }
+
+  .news-card-list__more-button {
+    height: 56px;
+    margin-top: 16px;
+  }
+}

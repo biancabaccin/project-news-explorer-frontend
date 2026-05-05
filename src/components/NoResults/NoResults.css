@@ -24,3 +24,9 @@
   color: #b6bcbf;
   text-align: center;
 }
+
+@media screen and (max-width: 320px) {
+  .no-results__sub-title {
+    max-width: 288px;
+  }
+}

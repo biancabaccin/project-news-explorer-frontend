@@ -1,4 +1,4 @@
-.navigation {
+.navigation__menu {
   display: flex;
   align-items: center;
   gap: 44px;
@@ -98,8 +98,12 @@
   font-weight: 500;
 }
 
+.navigation__mobile-menu {
+  display: none;
+}
+
 @media screen and (max-width: 850px) {
-  .navigation {
+  .navigation__menu {
     gap: 22px;
     margin: 14px 40px 12px 0;
     font-size: 16px;
@@ -123,5 +127,94 @@
 
   .navigation--saved .navigation__link--active::after {
     width: 120%;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .navigation__menu {
+    display: none;
+    z-index: 5;
+  }
+
+  .navigation__mobile-menu {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: transparent;
+    border: none;
+    margin: 16px;
+    z-index: 10;
+  }
+
+  .navigation__mobile-icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .navigation__menu--open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #1a1b22;
+    height: 260px;
+    max-width: 610px;
+    width: 100%;
+    margin: 0;
+    gap: 0;
+    z-index: -5;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link {
+    margin-top: 80px;
+    align-self: flex-start;
+    padding-left: 16px;
+    font-size: 18px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link:nth-of-type(2) {
+    margin-top: 21.8px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link::after {
+    display: none;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__signin-button {
+    max-width: 280px;
+    width: 100%;
+    height: 55.6px;
+    margin-top: 50px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__signout-button {
+    max-width: 280px;
+    width: 100%;
+    height: 55.6px;
+    margin-top: 30px;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__link {
+    color: #ffffff;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__signout-button {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__singout-image {
+    filter: brightness(0) invert(1);
+  }
+
+  body.menu-open .header--saved .header__logo {
+    color: #ffffff;
   }
 }
