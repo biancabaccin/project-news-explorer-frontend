@@ -4,6 +4,7 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
 
   const isFormValid = email.trim() && password.trim() && !emailError;
 
@@ -21,9 +22,15 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
     setEmailError("");
 
     if (onLogin) {
-      onLogin({ email, password });
+      const error = onLogin({ email, password });
+
+      if (error) {
+        setAuthError(error);
+        return;
+      }
     }
 
+    setAuthError("");
     onClose();
   }
 
@@ -40,11 +47,8 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
-            if (!e.target.validity.valid) {
-              setEmailError("");
-            } else {
-              setEmailError("");
-            }
+            setEmailError("");
+            setAuthError("");
           }}
         />
 
@@ -61,7 +65,10 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
           type="password"
           placeholder="Insira a senha"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setAuthError("");
+          }}
           required
         />
       </fieldset>
@@ -74,6 +81,8 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
         >
           Entrar
         </button>
+
+        {authError && <span className="popup__submit-error">{authError}</span>}
       </div>
 
       <p className="popup__info-text">

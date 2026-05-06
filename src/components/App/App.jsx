@@ -30,8 +30,6 @@ export default function App() {
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    setCurrentUser(newUser);
-    localStorage.setItem("currentUser", JSON.stringify(newUser));
     handleClosePopup();
   }
 
@@ -43,12 +41,14 @@ export default function App() {
     );
 
     if (!user) {
-      return;
+      return "Invalid email or password";
     }
 
     setCurrentUser(user);
     localStorage.setItem("currentUser", JSON.stringify(user));
     handleClosePopup();
+
+    return null;
   }
 
   function handleLogout() {
