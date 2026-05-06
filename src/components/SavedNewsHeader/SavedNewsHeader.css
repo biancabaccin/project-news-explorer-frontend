@@ -64,7 +64,13 @@
 
 @media screen and (max-width: 610px) {
   .saved-news-header {
-    height: 302px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 328px) {
+  .saved-news-header {
+    height: 332px;
   }
 
   .saved-news-header__content {
@@ -80,5 +86,9 @@
   .saved-news-header__quantity {
     font-size: 30px;
     margin-bottom: 50px;
+  }
+
+  .saved-news-header__keyword {
+    margin-bottom: 32px;
   }
 }

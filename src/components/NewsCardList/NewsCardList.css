@@ -36,6 +36,12 @@
 
 @media screen and (max-width: 610px) {
   .news-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .news-card-list {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
     margin: 0 auto;

@@ -33,6 +33,16 @@
 
 @media screen and (max-width: 610px) {
   .news-page__container {
+    max-width: 580px;
+  }
+
+  .news-page__title {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .news-page__container {
     max-width: 288px;
     padding: 32px 16px 24px;
     gap: 0px;

@@ -80,6 +80,26 @@
 }
 
 @media screen and (max-width: 610px) {
+  .news-banner__container {
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .news-banner__container {
+    max-width: 300px;
+    margin: 0 auto;
+    gap: 0;
+  }
+
+  .news-banner-content {
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 350px) {
   .news-banner {
     height: 536px;
     max-height: 536px;

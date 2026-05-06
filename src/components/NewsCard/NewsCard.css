@@ -14,6 +14,7 @@
 
 .news-card__image {
   width: 100%;
+  min-height: 272px;
   max-height: 272px;
   height: 100%;
   object-fit: cover;
