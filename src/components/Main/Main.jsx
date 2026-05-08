@@ -16,6 +16,14 @@ export default function Main({
   onLogin,
   onRegister,
   onLogout,
+  articles,
+  loading,
+  error,
+  searchDone,
+  onSearch,
+  savedArticles,
+  onSaveArticle,
+  onDeleteArticle,
 }) {
   const popupMap = {
     login: {
@@ -58,10 +66,18 @@ export default function Main({
         onOpenPopup={onOpenPopup}
         currentUser={currentUser}
         onLogout={onLogout}
+        onSearch={onSearch}
       />
-      <Preloader />
-      <NoResults />
-      <NewsPage currentUser={currentUser} />
+      <NewsPage
+        currentUser={currentUser}
+        articles={articles}
+        loading={loading}
+        error={error}
+        searchDone={searchDone}
+        savedArticles={savedArticles}
+        onSaveArticle={onSaveArticle}
+        onDeleteArticle={onDeleteArticle}
+      />
       <About />
 
       {popup && popupMap[popup.type] && (

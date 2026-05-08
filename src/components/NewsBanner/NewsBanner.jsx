@@ -4,7 +4,12 @@ import newsBannerImage from "@src/images/News_Banner.png";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 
-export default function NewsBanner({ onOpenPopup, currentUser, onLogout }) {
+export default function NewsBanner({
+  onOpenPopup,
+  currentUser,
+  onLogout,
+  onSearch,
+}) {
   return (
     <div className="news-banner">
       <Header
@@ -25,7 +30,7 @@ export default function NewsBanner({ onOpenPopup, currentUser, onLogout }) {
             Encontre as últimas notícias sobre qualquer tema e salve elas em sua
             conta pessoal
           </p>
-          <SearchForm />
+          <SearchForm onSearch={onSearch} />
         </div>
       </div>
     </div>

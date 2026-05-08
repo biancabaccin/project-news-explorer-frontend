@@ -1,60 +1,71 @@
 import { useState, useEffect } from "react";
 import "./NewsCard.css";
+
 import SaveTooltip from "./components/SaveTooltip/SaveTooltip";
 import RemoveTooltip from "./components/RemoveTooltip/RemoveTooltip";
 
 export default function NewsCard({
-  isLoggedIn,
-  isSavedNewsPage,
-  onSave,
-  onRemove,
   id,
   title,
   description,
   date,
   source,
   image,
+  keyword,
+  currentUser,
+  isSavedNewsPage,
+  onSave,
+  onRemove,
+  savedArticles,
 }) {
   const [isSaved, setIsSaved] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("savedNewsByUser") || "{}");
-    const email = JSON.parse(localStorage.getItem("currentUser"))?.email;
-    const savedStatus =
-      email && saved[email]
-        ? saved[email].some((news) => news.id === id)
-        : false;
-    setIsSaved(savedStatus);
-  }, [id, isLoggedIn]);
+    setIsSaved(false);
 
-  const handleSaveClick = () => {
-    if (!isLoggedIn) return;
+    if (!currentUser) return;
 
-    const email = JSON.parse(localStorage.getItem("currentUser"))?.email;
-    if (!email) return;
+    const exists = savedArticles?.some((item) => item.id === id);
 
-    const saved = JSON.parse(localStorage.getItem("savedNewsByUser") || "{}");
-    if (!saved[email]) saved[email] = [];
+    setIsSaved(exists);
+  }, [savedArticles, id, currentUser]);
+
+  function handleSaveClick() {
+    if (!currentUser) return;
+
+    const article = {
+      id,
+      title,
+      description,
+      date,
+      source,
+      image,
+      keyword,
+    };
 
     if (isSaved) {
-      saved[email] = saved[email].filter((news) => news.id !== id);
-      localStorage.setItem("savedNewsByUser", JSON.stringify(saved));
       setIsSaved(false);
       onRemove?.(id);
-    } else {
-      saved[email].push({ id, title, description, date, source, image });
-      localStorage.setItem("savedNewsByUser", JSON.stringify(saved));
-      setIsSaved(true);
-      onSave?.({ id, title, description, date, source, image });
+      return;
     }
-  };
 
-  const handleRemoveClick = () => {
-    if (!isLoggedIn) return;
-    setIsSaved(false);
+    setIsSaved(true);
+    onSave?.(article);
+  }
+
+  function handleRemoveClick() {
     onRemove?.(id);
-  };
+    setIsSaved(false);
+  }
+
+  function formatDate(dateString) {
+    return new Date(dateString).toLocaleDateString("pt-BR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
 
   return (
     <li className="news-card">
@@ -63,34 +74,37 @@ export default function NewsCard({
       {!isSavedNewsPage && (
         <div
           className="news-card__save-container"
-          onMouseEnter={() => !isLoggedIn && setShowTooltip(true)}
-          onMouseLeave={() => !isLoggedIn && setShowTooltip(false)}
+          onMouseEnter={() => !currentUser && setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
         >
-          {!isLoggedIn && showTooltip && <SaveTooltip />}
+          {!currentUser && showTooltip && <SaveTooltip />}
+
           <button
-            className={`news-card__save-button ${isLoggedIn && isSaved ? "news-card__save-button--active" : ""}`}
-            aria-label="Save News"
-            type="button"
+            className={`news-card__save-button
+              ${currentUser && isSaved ? "news-card__save-button--active" : ""}
+              ${!currentUser ? "news-card__save-button--logged-out" : ""}
+            `}
             onClick={handleSaveClick}
-            disabled={!isLoggedIn}
+            aria-label="Salvar artigo"
           />
         </div>
       )}
 
       {isSavedNewsPage && (
         <div className="news-card__top-box">
-          <p className="news-card__article-tag">ArticleTag</p>
+          <p className="news-card__article-tag">{keyword}</p>
+
           <div
             className="news-card__remove-container"
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
           >
             {showTooltip && <RemoveTooltip />}
+
             <button
               className="news-card__remove-button"
-              aria-label="Remove News"
-              type="button"
               onClick={handleRemoveClick}
+              aria-label="Remover artigo"
             />
           </div>
         </div>
@@ -98,9 +112,10 @@ export default function NewsCard({
 
       <div className="news-card__content">
         <div className="news-card__content-row">
-          <p className="news-card__date">{date}</p>
-          <p className="news-card__title">{title}</p>
+          <p className="news-card__date">{formatDate(date)}</p>
+          <h3 className="news-card__title">{title}</h3>
         </div>
+
         <div className="news-card__content-row">
           <p className="news-card__description">{description}</p>
           <p className="news-card__source">{source}</p>

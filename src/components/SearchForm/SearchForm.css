@@ -47,6 +47,10 @@
   background-color: #2a65cc;
 }
 
+.search-form__error {
+  padding-left: 23px;
+}
+
 @media screen and (max-width: 850px) {
   .search-form__input {
     height: 56px;

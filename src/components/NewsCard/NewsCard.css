@@ -52,12 +52,12 @@
   background-image: url("@src/images/Bookmark_Active.svg");
 }
 
-.news-card__save-button--active:active {
+.news-card__save-button--active:hover {
   background-image: url("@src/images/Bookmark_Active.svg");
 }
 
-.news-card__save-button--active:hover {
-  background-image: url("@src/images/Bookmark_Active.svg");
+.news-card__save-button--logged-out:active {
+  background-image: url("@src/images/Bookmark_Hover.svg");
 }
 
 .news-card__top-box {
@@ -83,6 +83,7 @@
   font-size: 14px;
   line-height: 40px;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .news-card__remove-button {
