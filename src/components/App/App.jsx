@@ -10,23 +10,26 @@ import newsApi from "@src/utils/NewsApi";
 
 export default function App() {
   const [popup, setPopup] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
-
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchDone, setSearchDone] = useState(false);
 
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("currentUser")) || null;
+    } catch {
+      return null;
+    }
+  });
 
-  useEffect(() => {
-    const savedUser = localStorage.getItem("currentUser");
-    if (savedUser) setCurrentUser(JSON.parse(savedUser));
-
-    const saved = JSON.parse(localStorage.getItem("savedNews")) || [];
-
-    setSavedArticles(saved);
-  }, []);
+  const [savedArticles, setSavedArticles] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("savedNews")) || [];
+    } catch {
+      return [];
+    }
+  });
 
   async function handleSearch(query) {
     if (!query.trim()) {
@@ -54,8 +57,11 @@ export default function App() {
       setArticles(formatted);
       setSearchDone(true);
     } catch (err) {
+      console.error(err);
+
       setError(
-        "Desculpe, algo deu errado durante a solicitação. Tente novamente mais tarde.",
+        err?.message ||
+          "Desculpe, algo deu errado durante a solicitação. Tente novamente mais tarde.",
       );
     } finally {
       setLoading(false);

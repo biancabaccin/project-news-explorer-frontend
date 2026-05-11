@@ -22,9 +22,10 @@ export default function NewsCard({
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    setIsSaved(false);
-
-    if (!currentUser) return;
+    if (!currentUser) {
+      setIsSaved(false);
+      return;
+    }
 
     const exists = savedArticles?.some((item) => item.id === id);
 

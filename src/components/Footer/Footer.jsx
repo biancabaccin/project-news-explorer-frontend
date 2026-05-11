@@ -17,8 +17,9 @@ export default function Footer() {
               Início
             </Link>
             <a
-              href="/"
-              onClick={(e) => e.preventDefault()}
+              href="https://tripleten.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="footer__link"
             >
               TripleTen
@@ -27,15 +28,17 @@ export default function Footer() {
 
           <div className="footer__icon-box">
             <a
-              href="/"
-              onClick={(e) => e.preventDefault()}
+              href="https://github.com/biancabaccin"
+              target="_blank"
+              rel="noopener noreferrer"
               className="footer__icon-link"
             >
               <img src={githubIcon} alt="GitHub" />
             </a>
             <a
-              href="/"
-              onClick={(e) => e.preventDefault()}
+              href="https://www.facebook.com/tripleten.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="footer__icon-link"
             >
               <img src={facebookIcon} alt="Facebook" />

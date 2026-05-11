@@ -12,7 +12,12 @@ class AuthApi {
   getArticles() {
     return fetch(`${this._baseUrl}/articles`, {
       headers: this._headers,
-    }).then(this._check);
+    })
+      .then((res) => this._check(res))
+      .catch((err) => {
+        console.error("Erro ao buscar artigos:", err);
+        throw err;
+      });
   }
 
   saveArticle(article) {
@@ -20,14 +25,24 @@ class AuthApi {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(article),
-    }).then(this._check);
+    })
+      .then((res) => this._check(res))
+      .catch((err) => {
+        console.error("Erro ao salvar artigo:", err);
+        throw err;
+      });
   }
 
   deleteArticle(id) {
     return fetch(`${this._baseUrl}/articles/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._check);
+    })
+      .then((res) => this._check(res))
+      .catch((err) => {
+        console.error("Erro ao deletar artigo:", err);
+        throw err;
+      });
   }
 }
 

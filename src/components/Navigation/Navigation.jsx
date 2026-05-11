@@ -14,7 +14,6 @@ export default function Navigation({ variant, onOpenPopup, onLogout }) {
   const currentUser = useContext(CurrentUserContext);
   const logoutIcon = variant === "saved" ? logoutDark : logoutLight;
   const menuIcon = variant === "saved" ? mobileMenuDark : mobileMenu;
-  const closeIcon = variant === "saved" ? closeMenuIcon : closeMenuIcon;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
