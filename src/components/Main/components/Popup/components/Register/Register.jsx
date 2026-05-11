@@ -90,7 +90,8 @@ export default function Register({
           name="username"
           type="text"
           placeholder="Insira seu nome de usuário"
-          maxLength={10}
+          minLength={2}
+          maxLength={30}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
