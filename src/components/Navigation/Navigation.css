@@ -1,0 +1,220 @@
+.navigation__menu {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  margin: 16px 104px 12px 0;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  position: relative;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.navigation__link:visited {
+  color: #ffffff;
+}
+
+.navigation__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.navigation__link--active::after {
+  width: 155%;
+}
+
+.navigation__signin-button {
+  font-weight: 500;
+  width: 176px;
+  height: 48px;
+  color: #ffffff;
+  background-color: transparent;
+  border-width: 1px;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+.navigation__signin-button:hover {
+  opacity: 85%;
+}
+
+.navigation__signout-button {
+  width: 176px;
+  height: 48px;
+  color: #ffffff;
+  background-color: transparent;
+  border-width: 1px;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navigation__signout-button:hover {
+  opacity: 85%;
+}
+
+.navigation--saved .navigation__link {
+  color: #1a1b22;
+}
+
+.navigation--saved .navigation__link:visited {
+  color: #1a1b22;
+}
+
+.navigation--saved .navigation__link::after {
+  background-color: #1a1b22;
+}
+
+.navigation--saved .navigation__link--active::after {
+  width: 140%;
+}
+
+.navigation--saved .navigation__signin-button {
+  color: #1a1b22;
+  border-color: #1a1b22;
+}
+
+.navigation--saved .navigation__signout-button {
+  color: #1a1b22;
+  border-color: #1a1b22;
+  font-weight: 500;
+}
+
+.navigation__mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  .navigation__menu {
+    gap: 22px;
+    margin: 14px 40px 12px 0;
+    font-size: 16px;
+  }
+
+  .navigation__signin-button {
+    width: 152px;
+    height: 40px;
+  }
+
+  .navigation__signout-button {
+    width: 140px;
+    height: 40px;
+    gap: 13px;
+  }
+
+  .navigation__link::after {
+    bottom: -21px;
+    height: 3px;
+  }
+
+  .navigation--saved .navigation__link--active::after {
+    width: 120%;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .navigation__menu {
+    display: none;
+    z-index: 5;
+  }
+
+  .navigation__mobile-menu {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: transparent;
+    border: none;
+    margin: 16px;
+    z-index: 10;
+  }
+
+  .navigation__mobile-icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .navigation__menu--open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #1a1b22;
+    height: 260px;
+    max-width: 610px;
+    width: 100%;
+    margin: 0;
+    gap: 0;
+    z-index: -5;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link {
+    margin-top: 80px;
+    align-self: flex-start;
+    padding-left: 16px;
+    font-size: 18px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link:nth-of-type(2) {
+    margin-top: 21.8px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__link::after {
+    display: none;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__signin-button {
+    max-width: 280px;
+    width: 100%;
+    height: 55.6px;
+    margin-top: 50px;
+  }
+
+  .navigation__menu.navigation__menu--open .navigation__signout-button {
+    max-width: 280px;
+    width: 100%;
+    height: 55.6px;
+    margin-top: 30px;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__link {
+    color: #ffffff;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__signout-button {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .navigation--saved
+    .navigation__menu.navigation__menu--open
+    .navigation__singout-image {
+    filter: brightness(0) invert(1);
+  }
+
+  body.menu-open .header--saved .header__logo {
+    color: #ffffff;
+  }
+}

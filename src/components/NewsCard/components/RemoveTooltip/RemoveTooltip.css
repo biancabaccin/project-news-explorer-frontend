@@ -1,0 +1,26 @@
+.remove-tooltip {
+  position: absolute;
+  top: 0px;
+  right: 45px;
+
+  height: 40px;
+  width: 159px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-tooltip__content {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  .remove-tooltip {
+    display: none;
+  }
+}
