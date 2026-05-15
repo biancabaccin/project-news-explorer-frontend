@@ -11,15 +11,7 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const emailInput = e.target.elements.email;
-    const isValid = emailInput.validity.valid;
-
-    if (!isValid) {
-      setEmailError("Invalid email address");
-      return;
-    }
-
-    setEmailError("");
+    if (emailError) return;
 
     if (onLogin) {
       const error = onLogin({ email, password });
@@ -46,9 +38,16 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
           required
           value={email}
           onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailError("");
+            const value = e.target.value;
+
+            setEmail(value);
             setAuthError("");
+
+            if (!e.target.validity.valid) {
+              setEmailError("Invalid email address");
+            } else {
+              setEmailError("");
+            }
           }}
         />
 

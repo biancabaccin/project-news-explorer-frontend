@@ -17,15 +17,9 @@ export default function Register({
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const emailInput = e.target.elements.email;
-
-    setEmailError("");
     setSubmitError("");
 
-    if (!emailInput.validity.valid) {
-      setEmailError("Invalid email address");
-      return;
-    }
+    if (emailError) return;
 
     if (password.length < 8) {
       setSubmitError("The password must be at least 8 characters long");
@@ -59,7 +53,17 @@ export default function Register({
           placeholder="Insira e-mail"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            const value = e.target.value;
+
+            setEmail(value);
+
+            if (!e.target.validity.valid) {
+              setEmailError("Invalid email address");
+            } else {
+              setEmailError("");
+            }
+          }}
         />
 
         {emailError && (
