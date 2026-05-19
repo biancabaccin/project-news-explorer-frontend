@@ -40,7 +40,7 @@ export default function SavedNewsHeader({
         <h2 className="saved-news-header__title">Artigos salvos</h2>
         <p className="saved-news-header__quantity">
           {currentUser
-            ? `${currentUser.username}, você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`
+            ? `${currentUser.name}, você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`
             : `Você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`}
         </p>
         <p className="saved-news-header__keyword">

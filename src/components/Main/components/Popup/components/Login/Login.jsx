@@ -8,13 +8,13 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
 
   const isFormValid = email.trim() && password.trim() && !emailError;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (emailError) return;
 
     if (onLogin) {
-      const error = onLogin({ email, password });
+      const error = await onLogin({ email, password });
 
       if (error) {
         setAuthError(error);

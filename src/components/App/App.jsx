@@ -7,6 +7,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import CurrentUserContext from "@src/contexts/CurrentUserContext";
 import newsApi from "@src/utils/NewsApi";
+import mainApi from "@src/utils/MainApi";
 
 export default function App() {
   const [popup, setPopup] = useState(null);
@@ -94,20 +95,24 @@ export default function App() {
     });
   }
 
-  function handleLogin({ email, password }) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+  async function handleLogin({ email, password }) {
+    try {
+      const data = await mainApi.login(email, password);
 
-    const user = users.find(
-      (u) => u.email === email && u.password === password,
-    );
+      localStorage.setItem("token", data.token);
 
-    if (!user) return "Invalid email or password";
+      const userData = await mainApi.getMe();
 
-    setCurrentUser(user);
-    localStorage.setItem("currentUser", JSON.stringify(user));
-    setPopup(null);
+      setCurrentUser(userData);
 
-    return null;
+      localStorage.setItem("currentUser", JSON.stringify(userData));
+
+      setPopup(null);
+
+      return null;
+    } catch (err) {
+      return err.message || "Invalid email or password";
+    }
   }
 
   function handleLogout() {
@@ -120,33 +125,19 @@ export default function App() {
     setError("");
   }
 
-  function handleRegister({ username, email, password }) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+  async function handleRegister({ name, email, password }) {
+    try {
+      await mainApi.register(email, password, name);
 
-    const existingUser = users.find(
-      (user) => user.email.toLowerCase() === email.toLowerCase(),
-    );
-
-    if (existingUser) {
+      return {
+        success: true,
+      };
+    } catch (err) {
       return {
         success: false,
-        message: "Este e-mail não está disponível",
+        message: err.message || "Erro ao registrar usuário",
       };
     }
-
-    const newUser = {
-      username,
-      email,
-      password,
-    };
-
-    users.push(newUser);
-
-    localStorage.setItem("users", JSON.stringify(users));
-
-    return {
-      success: true,
-    };
   }
 
   function handleOpenPopup(type) {

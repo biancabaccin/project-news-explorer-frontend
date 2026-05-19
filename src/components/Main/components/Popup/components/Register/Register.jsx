@@ -10,9 +10,9 @@ export default function Register({
   const [emailError, setEmailError] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
 
-  const isFormValid = email.trim() && password.trim() && username.trim();
+  const isFormValid = email.trim() && password.trim() && name.trim();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -26,8 +26,8 @@ export default function Register({
       return;
     }
 
-    const result = onRegister({
-      username,
+    const result = await onRegister({
+      name,
       email,
       password,
     });
@@ -91,13 +91,13 @@ export default function Register({
 
         <input
           className="popup__input"
-          name="username"
+          name="name"
           type="text"
           placeholder="Insira seu nome de usuário"
           minLength={2}
           maxLength={30}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </fieldset>
