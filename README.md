@@ -16,6 +16,7 @@ Nesta fase, o objetivo é organizar a estrutura do projeto, criar componentes re
 - Estrutura baseada em componentes
 - Hooks (useState, useEffect)
 - localStorage
+- Protected Routes
 
 ### Integração com API
 

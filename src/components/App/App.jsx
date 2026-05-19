@@ -5,6 +5,8 @@ import "./App.css";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
 import CurrentUserContext from "@src/contexts/CurrentUserContext";
 import newsApi from "@src/utils/NewsApi";
 import mainApi from "@src/utils/MainApi";
@@ -178,12 +180,16 @@ export default function App() {
           <Route
             path="/saved-news"
             element={
-              <SavedNews
+              <ProtectedRoute
                 currentUser={currentUser}
-                savedArticles={savedArticles}
-                onDelete={handleDeleteArticle}
-                onLogout={handleLogout}
-              />
+                onOpenPopup={handleOpenPopup}
+              >
+                <SavedNews
+                  savedArticles={savedArticles}
+                  onDelete={handleDeleteArticle}
+                  onLogout={handleLogout}
+                />
+              </ProtectedRoute>
             }
           />
         </Routes>

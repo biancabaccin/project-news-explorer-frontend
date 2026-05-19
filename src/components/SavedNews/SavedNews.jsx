@@ -1,15 +1,13 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SavedNews.css";
 
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCard from "../NewsCard/NewsCard";
+import CurrentUserContext from "@src/contexts/CurrentUserContext";
 
-export default function SavedNews({
-  currentUser,
-  savedArticles,
-  onDelete,
-  onLogout,
-}) {
+export default function SavedNews({ savedArticles, onDelete, onLogout }) {
+  const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   function handleLogoutClick() {
