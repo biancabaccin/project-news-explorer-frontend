@@ -10,15 +10,27 @@ export default function SavedNewsHeader({
   const keywords = savedArticles
     .map((item) => item.keyword || "")
     .filter((k) => k.trim() !== "");
-  const uniqueKeywords = [...new Set(keywords)];
 
-  const first = uniqueKeywords.slice(0, 2);
-  const restCount = uniqueKeywords.length - first.length;
+  const keywordCount = keywords.reduce((acc, keyword) => {
+    acc[keyword] = (acc[keyword] || 0) + 1;
+    return acc;
+  }, {});
+
+  const sortedKeywords = Object.entries(keywordCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([keyword]) => keyword);
+
+  const showKeywords =
+    sortedKeywords.length >= 4
+      ? sortedKeywords.slice(0, 2)
+      : sortedKeywords.slice(0, 3);
+
+  const restCount = sortedKeywords.length - showKeywords.length;
 
   const capitalize = (word) =>
     word ? word.charAt(0).toUpperCase() + word.slice(1) : "";
 
-  const firstFormatted = first.map(capitalize).join(", ");
+  const firstFormatted = showKeywords.map(capitalize).join(", ");
 
   return (
     <div className="saved-news-header">
@@ -28,11 +40,11 @@ export default function SavedNewsHeader({
         <h2 className="saved-news-header__title">Artigos salvos</h2>
         <p className="saved-news-header__quantity">
           {currentUser
-            ? `${currentUser.username}, você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`
+            ? `${currentUser.name}, você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`
             : `Você tem ${count} ${count === 1 ? "artigo salvo" : "artigos salvos"}`}
         </p>
         <p className="saved-news-header__keyword">
-          {uniqueKeywords.length > 0 && (
+          {sortedKeywords.length > 0 && (
             <>
               Por palavras-chave: {firstFormatted}
               {restCount > 0 &&

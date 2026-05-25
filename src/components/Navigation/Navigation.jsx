@@ -76,7 +76,7 @@ export default function Navigation({ variant, onOpenPopup, onLogout }) {
                 setIsMenuOpen(false);
               }}
             >
-              {currentUser.username}{" "}
+              {currentUser.name}{" "}
               <img
                 className="navigation__singout-image"
                 src={logoutIcon}

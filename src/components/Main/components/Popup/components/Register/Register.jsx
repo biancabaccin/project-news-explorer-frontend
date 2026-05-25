@@ -10,30 +10,24 @@ export default function Register({
   const [emailError, setEmailError] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
 
-  const isFormValid = email.trim() && password.trim() && username.trim();
+  const isFormValid = email.trim() && password.trim() && name.trim();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const emailInput = e.target.elements.email;
-
-    setEmailError("");
     setSubmitError("");
 
-    if (!emailInput.validity.valid) {
-      setEmailError("Invalid email address");
-      return;
-    }
+    if (emailError) return;
 
     if (password.length < 8) {
       setSubmitError("The password must be at least 8 characters long");
       return;
     }
 
-    const result = onRegister({
-      username,
+    const result = await onRegister({
+      name,
       email,
       password,
     });
@@ -59,7 +53,17 @@ export default function Register({
           placeholder="Insira e-mail"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            const value = e.target.value;
+
+            setEmail(value);
+
+            if (!e.target.validity.valid) {
+              setEmailError("Invalid email address");
+            } else {
+              setEmailError("");
+            }
+          }}
         />
 
         {emailError && (
@@ -87,13 +91,13 @@ export default function Register({
 
         <input
           className="popup__input"
-          name="username"
+          name="name"
           type="text"
           placeholder="Insira seu nome de usuário"
           minLength={2}
           maxLength={30}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </fieldset>
