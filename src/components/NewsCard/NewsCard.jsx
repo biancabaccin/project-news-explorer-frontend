@@ -5,11 +5,14 @@ import SaveTooltip from "./components/SaveTooltip/SaveTooltip";
 import RemoveTooltip from "./components/RemoveTooltip/RemoveTooltip";
 
 export default function NewsCard({
+  _id,
   id,
   title,
+  text,
   description,
   date,
   source,
+  link,
   image,
   keyword,
   currentUser,
@@ -27,36 +30,38 @@ export default function NewsCard({
       return;
     }
 
-    const exists = savedArticles?.some((item) => item.id === id);
+    const exists = savedArticles?.some((item) => item.link === link);
 
     setIsSaved(exists);
-  }, [savedArticles, id, currentUser]);
+  }, [savedArticles, link, currentUser]);
 
   function handleSaveClick() {
     if (!currentUser) return;
 
+    const savedArticle = savedArticles?.find((item) => item.link === link);
+
+    if (savedArticle) {
+      setIsSaved(false);
+      onRemove?.(savedArticle._id);
+      return;
+    }
+
     const article = {
-      id,
       title,
-      description,
+      text,
       date,
       source,
+      link,
       image,
       keyword,
     };
-
-    if (isSaved) {
-      setIsSaved(false);
-      onRemove?.(id);
-      return;
-    }
 
     setIsSaved(true);
     onSave?.(article);
   }
 
   function handleRemoveClick() {
-    onRemove?.(id);
+    onRemove?.(_id);
     setIsSaved(false);
   }
 

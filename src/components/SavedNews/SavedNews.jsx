@@ -29,7 +29,7 @@ export default function SavedNews({ savedArticles, onDelete, onLogout }) {
         ) : (
           savedArticles.map((card) => (
             <NewsCard
-              key={card.id}
+              key={card._id}
               {...card}
               currentUser={currentUser}
               isSavedNewsPage={true}

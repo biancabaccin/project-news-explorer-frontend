@@ -26,13 +26,26 @@ export default function App() {
     }
   });
 
-  const [savedArticles, setSavedArticles] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("savedNews")) || [];
-    } catch {
-      return [];
+  const [savedArticles, setSavedArticles] = useState([]);
+
+  useEffect(() => {
+    async function loadSavedArticles() {
+      if (!currentUser) {
+        setSavedArticles([]);
+        return;
+      }
+
+      try {
+        const saved = await mainApi.getSavedArticles();
+        setSavedArticles(saved);
+      } catch (err) {
+        console.error("Erro ao carregar artigos salvos:", err);
+        setSavedArticles([]);
+      }
     }
-  });
+
+    loadSavedArticles();
+  }, [currentUser]);
 
   async function handleSearch(query) {
     if (!query.trim()) {
@@ -50,13 +63,14 @@ export default function App() {
       const formatted = data.articles.map((item, index) => ({
         id: index + item.title,
         title: item.title,
-        description: item.description,
+        text: item.description || item.title || "Sem descrição disponível",
+        description: item.description || "Sem descrição disponível",
         source: item.source.name,
         date: item.publishedAt,
         image: item.urlToImage,
+        link: item.url,
         keyword: query,
       }));
-
       setArticles(formatted);
       setSearchDone(true);
     } catch (err) {
@@ -71,30 +85,40 @@ export default function App() {
     }
   }
 
-  function handleSaveArticle(article) {
-    setSavedArticles((prev) => {
-      const exists = prev.some((a) => a.id === article.id);
+  async function handleSaveArticle(article) {
+    try {
+      const alreadySaved = savedArticles.some(
+        (item) => item.link === article.link,
+      );
 
-      let updated;
-
-      if (exists) {
-        updated = prev.filter((a) => a.id !== article.id);
-      } else {
-        updated = [...prev, article];
+      if (alreadySaved) {
+        return;
       }
 
-      localStorage.setItem("savedNews", JSON.stringify(updated));
-      return updated;
-    });
+      const savedArticle = await mainApi.saveArticle(article);
+
+      setSavedArticles((prev) => {
+        const exists = prev.some((item) => item.link === savedArticle.link);
+
+        if (exists) {
+          return prev;
+        }
+
+        return [...prev, savedArticle];
+      });
+    } catch (err) {
+      console.error("Erro ao salvar artigo:", err);
+    }
   }
 
-  function handleDeleteArticle(id) {
-    setSavedArticles((prev) => {
-      const updated = prev.filter((item) => item.id !== id);
+  async function handleDeleteArticle(id) {
+    try {
+      await mainApi.deleteArticle(id);
 
-      localStorage.setItem("savedNews", JSON.stringify(updated));
-      return updated;
-    });
+      setSavedArticles((prev) => prev.filter((item) => item._id !== id));
+    } catch (err) {
+      console.error("Erro ao remover artigo:", err);
+    }
   }
 
   async function handleLogin({ email, password }) {
@@ -106,7 +130,6 @@ export default function App() {
       const userData = await mainApi.getMe();
 
       setCurrentUser(userData);
-
       localStorage.setItem("currentUser", JSON.stringify(userData));
 
       setPopup(null);
@@ -119,9 +142,9 @@ export default function App() {
 
   function handleLogout() {
     setCurrentUser(null);
-
+    setSavedArticles([]);
     localStorage.removeItem("currentUser");
-
+    localStorage.removeItem("token");
     setArticles([]);
     setSearchDone(false);
     setError("");
