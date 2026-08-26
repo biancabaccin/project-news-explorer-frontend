@@ -1,40 +1,53 @@
-# Project News Explorer Frontend
+# News Explorer - Frontend
 
-Este projeto faz parte da etapa de Front-end do programa de Web Development da TripleTen, com foco na construção da base estrutural de uma aplicação em React utilizando Vite.
+The **News Explorer - Frontend** is part of the final project in the TripleTen Web Development Program. The goal of this project was to build the structural foundation of a React application using Vite, focusing on reusable components, routing, API integration, and dynamic user interfaces.
 
-Nesta fase, o objetivo é organizar a estrutura do projeto, criar componentes reutilizáveis, implementar rotas básicas e preparar a aplicação para integração com APIs externas.
+## Live Demo
 
-## Principais Recursos Utilizados:
+Visit the live demo here: **[News Explorer](https://project-news-explorer-frontend.vercel.app/)**
 
-### Frontend
+## Technologies
 
 - React + Vite
-- JSX e componentes funcionais
-- React Router (rotas básicas)
-- HTML semântico
-- CSS (Flexbox, Grid, responsivo)
-- Estrutura baseada em componentes
-- Hooks (useState, useEffect)
+- JSX
+- React Router
+- HTML5
+- CSS3
+- Flexbox
+- CSS Grid
+- Responsive Design
+- React Hooks (useState, useEffect)
 - localStorage
-- Protected Routes
+- Fetch API
 
-### Integração com API
+## Features
 
-- Fetch API (GET, POST, DELETE)
-- Consumo de API externa (ex: News API)
-- Tratamento de estados de carregamento
-- Renderização dinâmica de dados
-- Exibição de mensagens de erro
+- Search system with SearchForm
+- Dynamic news cards using API data
+- Loading preloader during requests
+- Dynamic modal functionality
+- Pagination with a “Show More” feature
+- Content saving states
+- API requests using GET, POST, and DELETE
+- Error message handling
+- Protected routes
+- localStorage integration
 
-### Funcionalidades de UI
+## Project Purpose
 
-- Preloader durante requisições
-- Modal com abertura/fechamento dinâmico
-- Sistema de busca (SearchForm)
-- Renderização paginada (“Mostrar mais”)
-- Cards dinâmicos com dados da API
-- Estados de salvamento de conteúdo
+This project was created to practice:
 
-## Confira o Projeto:
+- Building reusable React components
+- Creating basic routes with React Router
+- Developing responsive and semantic interfaces
+- Integrating external APIs
+- Managing application state with React Hooks
+- Persisting data with localStorage
+- Implementing protected routes
+- Handling loading and error states
+- Rendering dynamic content from API responses
+- Creating modals, search forms, and pagination features
 
-Acesse: https://project-news-explorer-frontend.vercel.app/
+## Author
+
+Developed by **Bianca Baccin** as part of the TripleTen Web Development Program.
