@@ -7,18 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Diretório de dependências
+# Dependencies directory
 node_modules/
 
-# Build / distribuição
+# Build / distribution
 dist/
 dist-ssr/
 build/
 
-# Cache opcional
+# Optional cache
 .npm
 
-# Arquivos de ambiente
+# Environment files
 .env
 
 # Editor / IDE
