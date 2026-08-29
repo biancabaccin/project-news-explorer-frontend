@@ -25,7 +25,7 @@ export default function SavedNews({ savedArticles, onDelete, onLogout }) {
 
       <div className="saved-news__cards">
         {savedArticles.length === 0 ? (
-          <p className="saved-news__empty"> {"Nenhum artigo salvo ainda :("}</p>
+          <p className="saved-news__empty"> {"No saved articles yet :("}</p>
         ) : (
           savedArticles.map((card) => (
             <NewsCard

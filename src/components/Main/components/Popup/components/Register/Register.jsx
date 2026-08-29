@@ -50,7 +50,7 @@ export default function Register({
           className="popup__input"
           name="email"
           type="email"
-          placeholder="Insira e-mail"
+          placeholder="Insert email"
           required
           value={email}
           onChange={(e) => {
@@ -78,7 +78,7 @@ export default function Register({
           className="popup__input"
           name="password"
           type="password"
-          placeholder="Insira a senha"
+          placeholder="Password"
           minLength={8}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -87,13 +87,13 @@ export default function Register({
       </fieldset>
 
       <fieldset className="popup__fieldset">
-        <p className="popup__input-name">Nome de usuário</p>
+        <p className="popup__input-name">Username</p>
 
         <input
           className="popup__input"
           name="name"
           type="text"
-          placeholder="Insira seu nome de usuário"
+          placeholder="Insert your username"
           minLength={2}
           maxLength={30}
           value={name}
@@ -108,7 +108,7 @@ export default function Register({
           type="submit"
           disabled={!isFormValid}
         >
-          Inscrever-se
+          Sign up
         </button>
 
         {submitError && (
@@ -117,7 +117,7 @@ export default function Register({
       </div>
 
       <p className="popup__info-text">
-        ou{" "}
+        or{" "}
         <button
           className="popup__info-button"
           type="button"
@@ -126,7 +126,7 @@ export default function Register({
             onOpenLogin();
           }}
         >
-          Entre
+          Log in
         </button>
       </p>
     </form>

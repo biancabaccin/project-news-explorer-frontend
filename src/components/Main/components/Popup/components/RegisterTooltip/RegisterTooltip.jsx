@@ -9,7 +9,7 @@ export default function RegisterTooltip({ onClose, onOpenLogin }) {
           onOpenLogin();
         }}
       >
-        Entrar
+        Log in
       </button>
     </div>
   );

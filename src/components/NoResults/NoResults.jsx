@@ -5,9 +5,9 @@ export default function NoResults() {
   return (
     <div className="no-results">
       <img className="no-results__image" src={notFound} alt="Not Found" />
-      <p className="no-results__title">Nada encontrado</p>
+      <p className="no-results__title">Nothing found</p>
       <p className="no-results__sub-title">
-        Desculpe, mas nada corresponde aos seus termos de pesquisa.
+        Sorry, but nothing matches your search terms.
       </p>
     </div>
   );

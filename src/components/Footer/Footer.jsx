@@ -8,13 +8,13 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <p className="footer__copyright">
-          &copy; 2021 Supersite, desenvolvido pela News API
+          &copy; 2021 Supersite, developed by News API
         </p>
 
         <div className="footer__navigation">
           <div className="footer__link-box">
             <Link to="/" className="footer__link footer__link-home">
-              Início
+              Home
             </Link>
             <a
               href="https://tripleten.com/"

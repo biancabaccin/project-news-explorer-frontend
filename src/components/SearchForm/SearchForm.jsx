@@ -10,7 +10,7 @@ export default function SearchForm({ onSearch }) {
     e.preventDefault();
 
     if (!value.trim()) {
-      setError("Por favor, insira uma palavra-chave");
+      setError("Please enter a keyword");
       return;
     }
 
@@ -28,12 +28,12 @@ export default function SearchForm({ onSearch }) {
       <input
         className="search-form__input"
         type="text"
-        placeholder="Inserir tema"
+        placeholder="Enter a topic"
         value={value}
         onChange={handleChange}
       />
       <button className="search-form__search-button" type="submit">
-        Procurar
+        Search
       </button>
 
       {error && <span className="search-form__error">{error}</span>}

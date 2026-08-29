@@ -55,7 +55,7 @@ export default function Navigation({ variant, onOpenPopup, onLogout }) {
           className={`navigation__link ${isActive("/") ? "navigation__link--active" : ""}`}
           onClick={() => setIsMenuOpen(false)}
         >
-          Início
+          Home
         </Link>
 
         {currentUser ? (
@@ -65,7 +65,7 @@ export default function Navigation({ variant, onOpenPopup, onLogout }) {
               className={`navigation__link ${isActive("/saved-news") ? "navigation__link--active" : ""}`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Artigos salvos
+              Saved Articles
             </Link>
 
             <button
@@ -93,7 +93,7 @@ export default function Navigation({ variant, onOpenPopup, onLogout }) {
               setIsMenuOpen(false);
             }}
           >
-            Entrar
+            Log in
           </button>
         )}
       </div>
