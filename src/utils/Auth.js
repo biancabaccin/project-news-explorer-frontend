@@ -15,7 +15,7 @@ class AuthApi {
     })
       .then((res) => this._check(res))
       .catch((err) => {
-        console.error("Erro ao buscar artigos:", err);
+        console.error("Error fetching articles:", err);
         throw err;
       });
   }
@@ -28,7 +28,7 @@ class AuthApi {
     })
       .then((res) => this._check(res))
       .catch((err) => {
-        console.error("Erro ao salvar artigo:", err);
+        console.error("Error saving article:", err);
         throw err;
       });
   }
@@ -40,7 +40,7 @@ class AuthApi {
     })
       .then((res) => this._check(res))
       .catch((err) => {
-        console.error("Erro ao deletar artigo:", err);
+        console.error("Error deleting article:", err);
         throw err;
       });
   }
