@@ -34,7 +34,7 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
           className="popup__input"
           name="email"
           type="email"
-          placeholder="Insira e-mail"
+          placeholder="Insert email"
           required
           value={email}
           onChange={(e) => {
@@ -57,12 +57,12 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
       </fieldset>
 
       <fieldset className="popup__fieldset">
-        <p className="popup__input-name">Senha</p>
+        <p className="popup__input-name">Password</p>
         <input
           className="popup__input"
           name="password"
           type="password"
-          placeholder="Insira a senha"
+          placeholder="Insert password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
@@ -78,14 +78,14 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
           type="submit"
           disabled={!isFormValid}
         >
-          Entrar
+          Log in
         </button>
 
         {authError && <span className="popup__submit-error">{authError}</span>}
       </div>
 
       <p className="popup__info-text">
-        ou{" "}
+        or{" "}
         <button
           className="popup__info-button"
           type="button"
@@ -94,7 +94,7 @@ export default function Login({ onClose, onOpenRegister, onLogin }) {
             onOpenRegister();
           }}
         >
-          inscreva-se
+          Sign up
         </button>
       </p>
     </form>

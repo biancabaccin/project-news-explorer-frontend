@@ -28,7 +28,7 @@ export default function NewsPage({
 
         {searchDone && !loading && articles.length > 0 && (
           <>
-            <h2 className="news-page__title">Procurar resultados</h2>
+            <h2 className="news-page__title">Search results</h2>
             <NewsCardList
               currentUser={currentUser}
               articles={articles}

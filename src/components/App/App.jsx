@@ -39,7 +39,7 @@ export default function App() {
         const saved = await mainApi.getSavedArticles();
         setSavedArticles(saved);
       } catch (err) {
-        console.error("Erro ao carregar artigos salvos:", err);
+        console.error("Error loading saved articles:", err);
         setSavedArticles([]);
       }
     }
@@ -49,7 +49,7 @@ export default function App() {
 
   async function handleSearch(query) {
     if (!query.trim()) {
-      setError("Por favor, insira uma palavra-chave");
+      setError("Please enter a keyword");
       return;
     }
 
@@ -63,8 +63,8 @@ export default function App() {
       const formatted = data.articles.map((item, index) => ({
         id: index + item.title,
         title: item.title,
-        text: item.description || item.title || "Sem descrição disponível",
-        description: item.description || "Sem descrição disponível",
+        text: item.description || item.title || "No description available",
+        description: item.description || "No description available",
         source: item.source.name,
         date: item.publishedAt,
         image: item.urlToImage,
@@ -78,7 +78,7 @@ export default function App() {
 
       setError(
         err?.message ||
-          "Desculpe, algo deu errado durante a solicitação. Tente novamente mais tarde.",
+          "Sorry, something went wrong during the request. Please try again later.",
       );
     } finally {
       setLoading(false);
@@ -107,7 +107,7 @@ export default function App() {
         return [...prev, savedArticle];
       });
     } catch (err) {
-      console.error("Erro ao salvar artigo:", err);
+      console.error("Error saving article:", err);
     }
   }
 
@@ -117,7 +117,7 @@ export default function App() {
 
       setSavedArticles((prev) => prev.filter((item) => item._id !== id));
     } catch (err) {
-      console.error("Erro ao remover artigo:", err);
+      console.error("Error removing article:", err);
     }
   }
 
@@ -160,7 +160,7 @@ export default function App() {
     } catch (err) {
       return {
         success: false,
-        message: err.message || "Erro ao registrar usuário",
+        message: err.message || "Error registering user",
       };
     }
   }

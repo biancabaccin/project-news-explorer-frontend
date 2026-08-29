@@ -22,13 +22,13 @@ export default function NewsBanner({
 
       <div className="news-banner__container">
         <h1 className="news-banner__title">
-          O que está{"\n"}acontecendo no mundo?
+          What's happening{"\n"}in the world?
         </h1>
 
         <div className="news-banner-content">
           <p className="news-banner__description">
-            Encontre as últimas notícias sobre qualquer tema e salve elas em sua
-            conta pessoal
+            Find the latest news on any topic and save them to your personal
+            account
           </p>
           <SearchForm onSearch={onSearch} />
         </div>

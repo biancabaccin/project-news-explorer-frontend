@@ -91,7 +91,7 @@ export default function NewsCard({
               ${!currentUser ? "news-card__save-button--logged-out" : ""}
             `}
             onClick={handleSaveClick}
-            aria-label="Salvar artigo"
+            aria-label="Save article"
           />
         </div>
       )}
@@ -110,7 +110,7 @@ export default function NewsCard({
             <button
               className="news-card__remove-button"
               onClick={handleRemoveClick}
-              aria-label="Remover artigo"
+              aria-label="Remove article"
             />
           </div>
         </div>

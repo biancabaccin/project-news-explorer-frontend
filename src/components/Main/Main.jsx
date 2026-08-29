@@ -27,7 +27,7 @@ export default function Main({
 }) {
   const popupMap = {
     login: {
-      title: "Entrar",
+      title: "Log in",
       component: (
         <Login
           onClose={onClosePopup}
@@ -38,7 +38,7 @@ export default function Main({
     },
 
     register: {
-      title: "Inscrever-se",
+      title: "Sign up",
       component: (
         <Register
           onClose={onClosePopup}
@@ -50,7 +50,7 @@ export default function Main({
     },
 
     registerTooltip: {
-      title: "Cadastro concluído com sucesso!",
+      title: "Registration completed successfully!",
       component: (
         <RegisterTooltip
           onClose={onClosePopup}

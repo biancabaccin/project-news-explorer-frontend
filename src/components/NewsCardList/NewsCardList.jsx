@@ -35,7 +35,7 @@ export default function NewsCardList({
           className="news-card-list__more-button"
           onClick={handleShowMore}
         >
-          Mostrar mais
+          Show more
         </button>
       )}
     </>
